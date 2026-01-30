@@ -1,0 +1,24 @@
+a{
+    
+    font-weight: bold;
+    font-style: italic;
+    
+}
+a:visited{
+    color: #800080;
+    
+}
+a:link{
+    color: #0066cc;
+    text-decoration: none;
+}
+a:active{
+    color: rgb(100, 200, 150);/*rgb(r,g,b,opacity)*/
+    opacity: 0.7;
+    font-size: 16pt;
+}
+a:hover{
+    color:#cc0000;
+    font-family: comic sans ms ;
+    text-decoration: underline;
+}

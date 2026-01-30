@@ -1,0 +1,34 @@
+body {
+    background: linear-gradient(to right, purple,red);
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #0077BE;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    animation: titre1 20s ease-in-out infinite;
+
+    @keyframes titre1{
+        from{transform: translate(100%);}
+        to {transform: translate(-100%);}
+    color: red;
+}}
+
+.img {
+    border: double 2px black;
+    padding: 2px;
+    display: block;
+    margin:  auto;
+}
+h2{
+    color: yellow;}
+
+.div{
+    background-color: gray;
+}
+div1{
+    background-color: gray;
+}

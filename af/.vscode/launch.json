@@ -1,0 +1,87 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "EX",
+      "request": "launch",
+      "mainClass": "EX",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "Exo10",
+      "request": "launch",
+      "mainClass": "Exo10",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "Exo8",
+      "request": "launch",
+      "mainClass": "Exo8",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "Exo4",
+      "request": "launch",
+      "mainClass": "Exo4",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "ex",
+      "request": "launch",
+      "mainClass": "ex",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "leetcode",
+      "request": "launch",
+      "mainClass": "leetcode",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "sol",
+      "request": "launch",
+      "mainClass": "sol",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "bubblesort",
+      "request": "launch",
+      "mainClass": "bubblesort",
+      "projectName": "af_7f997355"
+    },
+    {
+      "type": "java",
+      "name": "solution",
+      "request": "launch",
+      "mainClass": "solution",
+      "projectName": "af_7f997355"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/lenovo/Desktop/af",
+      "program": "c:/Users/lenovo/Desktop/af/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

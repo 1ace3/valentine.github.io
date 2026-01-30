@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="serieformulair.css">
+    <title>inscrption</title>
+</head>
+<body>
+    <div class="bloc1">
+           <h1>Merci de bien vouloir remplir ce formulaire</h1> 
+           
+        </div>
+    <fieldset>
+        <legend>information personelle</legend>
+    <form action="mailto:webmaster@iset.rnu.tn" method="post" enctype="text/plain">
+        <div class="bloc2">
+            Nom
+            <input type="text" name="Nom" placeholder="Ex:Nom" required><br>
+            Prenom
+            <input type="text" name="Prenom" placeholder="ex:Prenom" required>
+        <br>
+            <label for="">sex</label>
+            <input type="radio" name="Femme">
+            <label for="Femme">Femme</label>
+            <input type="radio" name="Homme">
+            <label for="Home">Homme</label><br>
+            <label for="">age</label>
+            <select name="Age">
+                <option value="15">15-30</option>
+                <option value="16">16</option>
+                <option value="16">17</option>
+                <option value="16">18</option>
+                <option value="16">19</option>
+                <option value="16">20</option>
+                <option value="16">21</option>
+                <option value="16">22</option>
+                <option value="16">23</option>
+            </select>
+            </fieldset>
+        </div>
+        <div class="bloc3">
+            <fieldset>
+                <legend>Votre avis m'interesse</legend>
+                <h3>vous passez que cette lecon</h3>
+                <input type="checkbox" name="Est tres claire" >
+                <label for="Est tres claire">Est tres claire</label><br>
+                <input type="checkbox" name="Est utile" >
+                <label for="Est utile">Est utile</label><br>
+                <input type="checkbox" name="Doit etre complete et ameloire" >
+                <label for="Doit etre complete et ameloire">Doit etre complete et ameloire</label><br>
+                le graphic en est:
+                <select name="sel" multiple>
+                    <option value="genial">genial</option>
+                    <option value="moyene">moyene</option>
+                    <option value="faible">faible</option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="bloc4">
+            <fieldset>
+                <legend>Votre remarque</legend>
+                <textarea name="text"  cols="50" rows="15">
+                </textarea>
+                
+            </fieldset>
+        
+         </div>   
+        <div class="bloc5">
+            <button type="submit">envoyer</button>
+            <button type="reset">annuler</button>
+        </div>
+        
+    </form>
+</body>
+</html>

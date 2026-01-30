@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" enctype="text/plain">
+    <input type="tel" name="nom" maxlength="8" minlength="8"  pattern="([0-9]{8})" />
+    <input type="text" name="langauges" placeholder="langauges des webs" list="langweb" required="required">
+    <datalist id="langweb">
+        <option value="html5"></option>
+        <option value="css3"></option>
+        <option value="php"></option>
+        <option value="xhtml"></option>
+        <option value="javascript"></option>
+    </datalist>
+    <input type="checkbox" name="sport1" value="football" checked>
+    <label for="sport1">football</label><br>
+    <input type="checkbox" name="sport2" value="handball" checked>
+    <label for="sport2">handball</label>
+
+
+    <input type="radio" name="sport" value="football" checked id="fsport">
+    <label for="fsport">football</label> 
+    <input type="radio" name="sport" value="football" id="hsport">
+    <label for="hsport">handball</label> 
+
+
+
+
+    <input type="submit" value="envoyer">
+    <input type="reset" value="annuler">
+    <button type="submit">envoyer</button>
+    <button type="reset">annuler</button>
+
+    
+    <textarea name="penser" cols="50" rows="5" readonly>
+    <label for="penser"> 
+        
+    le formulaire est un outil genial pour les ventes des produits sur INTERNET
+</label>    
+</textarea>
+
+
+<select name="pays" multiple>
+    <optgroup label="Europe">
+        <option value="france" selected>france</option>
+        <option value="allemagne">allemagne</option>
+        <option value="swis">swis</option>
+    </optgroup>
+    <optgroup label="na">
+        <option value="usa">usa</option>
+    </optgroup>
+</select>
+    
+
+</form>   
+</body>
+</html>

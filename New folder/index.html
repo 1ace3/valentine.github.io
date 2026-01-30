@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LUXE Tunisia - Premium glasses and fashion clothing delivered to Tunisia. Discover our curated collection of designer eyewear and stylish apparel.">
+    <meta name="keywords" content="glasses, eyewear, fashion, clothing, Tunisia, luxury, style">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="LUXE Tunisia - Premium Glasses & Fashion">
+    <meta property="og:description" content="Discover our curated collection of designer eyewear and stylish apparel, delivered to Tunisia.">
+    <meta property="og:type" content="website">
+    
+    <title>LUXE Tunisia | Premium Glasses & Fashion</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Shopify Buy Button SDK -->
+    <script src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <span class="logo-text">LUXE</span>
+                <span class="logo-accent">Tunisia</span>
+            </a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#categories" class="nav__link">Categories</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#products" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="nav__close" id="nav-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="nav__actions">
+                <button class="nav__cart" id="cart-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                
+                <button class="nav__toggle" id="nav-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__overlay"></div>
+        <div class="hero__particles" id="particles"></div>
+        
+        <div class="hero__content container">
+            <span class="hero__subtitle animate-fade-up">Premium Collection 2026</span>
+            <h1 class="hero__title animate-fade-up">
+                Elevate Your <span class="text-gradient">Style</span>
+            </h1>
+            <p class="hero__description animate-fade-up">
+                Discover our exclusive collection of designer eyewear and fashion clothing, 
+                carefully curated and delivered directly to Tunisia.
+            </p>
+            <div class="hero__buttons animate-fade-up">
+                <a href="#products" class="btn btn--primary">
+                    Shop Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#categories" class="btn btn--secondary">Explore Categories</a>
+            </div>
+        </div>
+        
+        <div class="hero__scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories section" id="categories">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">What We Offer</span>
+                <h2 class="section__title">Our <span class="text-gradient">Categories</span></h2>
+            </div>
+            
+            <div class="categories__grid">
+                <article class="category-card" data-category="glasses">
+                    <div class="category-card__image">
+                        <div class="category-card__overlay"></div>
+                        <div class="category-card__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="6" cy="15" r="4"></circle>
+                                <circle cx="18" cy="15" r="4"></circle>
+                                <path d="M10 15h4"></path>
+                                <path d="M2 15l0-2"></path>
+                                <path d="M22 15l0-2"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3 class="category-card__title">Eyewear</h3>
+                        <p class="category-card__description">Designer sunglasses and optical frames for every occasion</p>
+                        <a href="#products" class="category-card__link">
+                            Browse Collection
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="category-card" data-category="clothing">
+                    <div class="category-card__image">
+                        <div class="category-card__overlay"></div>
+                        <div class="category-card__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3 class="category-card__title">Clothing</h3>
+                        <p class="category-card__description">Trendy apparel and fashion essentials for modern style</p>
+                        <a href="#products" class="category-card__link">
+                            Browse Collection
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="category-card" data-category="accessories">
+                    <div class="category-card__image">
+                        <div class="category-card__overlay"></div>
+                        <div class="category-card__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="category-card__content">
+                        <h3 class="category-card__title">Accessories</h3>
+                        <p class="category-card__description">Complete your look with our premium accessories</p>
+                        <a href="#products" class="category-card__link">
+                            Browse Collection
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products section" id="products">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Featured Items</span>
+                <h2 class="section__title">Trending <span class="text-gradient">Products</span></h2>
+            </div>
+            
+            <div class="products__filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="glasses">Glasses</button>
+                <button class="filter-btn" data-filter="clothing">Clothing</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+            
+            <div class="products__grid" id="products-grid">
+                <!-- Product 1 -->
+                <article class="product-card" data-category="glasses">
+                    <div class="product-card__badge">New</div>
+                    <div class="product-card__image">
+                        <div class="product-card__placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <circle cx="6" cy="15" r="4"></circle>
+                                <circle cx="18" cy="15" r="4"></circle>
+                                <path d="M10 15h4"></path>
+                            </svg>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="product-action" title="Quick View">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="product-action" title="Add to Wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Eyewear</span>
+                        <h3 class="product-card__title">Classic Aviator Gold</h3>
+                        <div class="product-card__price">
+                            <span class="price-current">185 TND</span>
+                            <span class="price-original">220 TND</span>
+                        </div>
+                        <button class="btn btn--primary btn--full add-to-cart" data-product="aviator-gold">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Product 2 -->
+                <article class="product-card" data-category="clothing">
+                    <div class="product-card__badge sale">-20%</div>
+                    <div class="product-card__image">
+                        <div class="product-card__placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path>
+                            </svg>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="product-action" title="Quick View">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="product-action" title="Add to Wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Clothing</span>
+                        <h3 class="product-card__title">Premium Cotton Hoodie</h3>
+                        <div class="product-card__price">
+                            <span class="price-current">156 TND</span>
+                            <span class="price-original">195 TND</span>
+                        </div>
+                        <button class="btn btn--primary btn--full add-to-cart" data-product="cotton-hoodie">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Product 3 -->
+                <article class="product-card" data-category="glasses">
+                    <div class="product-card__image">
+                        <div class="product-card__placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <circle cx="6" cy="15" r="4"></circle>
+                                <circle cx="18" cy="15" r="4"></circle>
+                                <path d="M10 15h4"></path>
+                            </svg>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="product-action" title="Quick View">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="product-action" title="Add to Wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Eyewear</span>
+                        <h3 class="product-card__title">Round Retro Black</h3>
+                        <div class="product-card__price">
+                            <span class="price-current">145 TND</span>
+                        </div>
+                        <button class="btn btn--primary btn--full add-to-cart" data-product="retro-black">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Product 4 -->
+                <article class="product-card" data-category="clothing">
+                    <div class="product-card__badge">New</div>
+                    <div class="product-card__image">
+                        <div class="product-card__placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path>
+                            </svg>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="product-action" title="Quick View">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="product-action" title="Add to Wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Clothing</span>
+                        <h3 class="product-card__title">Slim Fit Blazer</h3>
+                        <div class="product-card__price">
+                            <span class="price-current">320 TND</span>
+                        </div>
+                        <button class="btn btn--primary btn--full add-to-cart" data-product="slim-blazer">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Product 5 -->
+                <article class="product-card" data-category="accessories">
+                    <div class="product-card__image">
+                        <div class="product-card__placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="product-action" title="Quick View">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="product-action" title="Add to Wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Accessories</span>
+                        <h3 class="product-card__title">Leather Travel Bag</h3>
+                        <div class="product-card__price">
+                            <span class="price-current">275 TND</span>
+                        </div>
+                        <button class="btn btn--primary btn--full add-to-cart" data-product="travel-bag">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Product 6 -->
+                <article class="product-card" data-category="glasses">
+                    <div class="product-card__badge sale">-15%</div>
+                    <div class="product-card__image">
+                        <div class="product-card__placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <circle cx="6" cy="15" r="4"></circle>
+                                <circle cx="18" cy="15" r="4"></circle>
+                                <path d="M10 15h4"></path>
+                            </svg>
+                        </div>
+                        <div class="product-card__actions">
+                            <button class="product-action" title="Quick View">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="product-action" title="Add to Wishlist">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Eyewear</span>
+                        <h3 class="product-card__title">Sport Shield Pro</h3>
+                        <div class="product-card__price">
+                            <span class="price-current">170 TND</span>
+                            <span class="price-original">200 TND</span>
+                        </div>
+                        <button class="btn btn--primary btn--full add-to-cart" data-product="sport-shield">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Shopify Products Container -->
+            <div id="shopify-products"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section">
+        <div class="container">
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Fast Delivery</h3>
+                    <p class="feature-card__text">Free shipping across Tunisia on orders over 200 TND</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Secure Payment</h3>
+                    <p class="feature-card__text">100% secure payment with multiple options</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Easy Returns</h3>
+                    <p class="feature-card__text">14-day hassle-free return policy</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">24/7 Support</h3>
+                    <p class="feature-card__text">Dedicated customer support in French & Arabic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about__content">
+                <div class="about__text">
+                    <span class="section__subtitle">Our Story</span>
+                    <h2 class="section__title">About <span class="text-gradient">LUXE Tunisia</span></h2>
+                    <p class="about__description">
+                        Founded with a passion for premium fashion, LUXE Tunisia brings the world's finest eyewear 
+                        and clothing directly to your doorstep. We believe that everyone deserves access to 
+                        high-quality, stylish products that express their unique personality.
+                    </p>
+                    <p class="about__description">
+                        Our curated collection features carefully selected pieces from renowned designers, 
+                        ensuring that every item meets our strict standards for quality and style. From 
+                        classic aviators to contemporary fashion pieces, we have something for everyone.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number">5000+</span>
+                            <span class="stat__label">Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">500+</span>
+                            <span class="stat__label">Products</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">24</span>
+                            <span class="stat__label">Governorates</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__image">
+                    <div class="about__image-wrapper">
+                        <div class="about__placeholder">
+                            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
+                                <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="about__float-card">
+                        <span class="float-card__icon">✨</span>
+                        <span class="float-card__text">Premium Quality</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter section">
+        <div class="container">
+            <div class="newsletter__content">
+                <h2 class="newsletter__title">Stay <span class="text-gradient">Updated</span></h2>
+                <p class="newsletter__text">Subscribe to our newsletter and get 10% off your first order</p>
+                <form class="newsletter__form" id="newsletter-form">
+                    <input type="email" class="newsletter__input" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn--primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <span class="logo-text">LUXE</span>
+                        <span class="logo-accent">Tunisia</span>
+                    </a>
+                    <p class="footer__description">
+                        Your premium destination for designer eyewear and fashion in Tunisia.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Quick Links</h4>
+                    <ul class="footer__list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__title">Customer Service</h4>
+                    <ul class="footer__list">
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__title">Contact Us</h4>
+                    <ul class="footer__list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Tunis, Tunisia
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +216 XX XXX XXX
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            contact@luxetunisia.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2026 LUXE Tunisia. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-sidebar__header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-sidebar__content" id="cart-content">
+            <div class="cart-empty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-sidebar__footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">0 TND</span>
+            </div>
+            <button class="btn btn--primary btn--full" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/shopify.js"></script>
+</body>
+</html>

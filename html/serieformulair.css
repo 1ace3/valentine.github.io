@@ -1,0 +1,66 @@
+legend{
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 16pt;
+}
+
+.bloc2{
+    
+  background-color: #0080FF;
+    font-size: 16px;
+    font-size: bold;
+
+    
+}
+.bloc3{
+    background-color: #0080FF;
+    font-size: 16px;
+    font-size: bold;
+    width: 50%;
+    height: 50vh;
+    display: inline-block;
+
+}
+
+.bloc4{
+    background-color: #a4c8f0;
+    font-size: 16px;
+    font-style:bold;
+    text-align: left;
+    width: 50%;
+    height: 50vh;
+    float: right;
+    
+    
+
+}
+textarea{
+    resize: none;
+}
+.bloc5{
+    background-color: darkblue;
+    text-align: center;
+
+
+}
+button{
+    cursor: pointer;
+}
+ input[type="radio"]{
+    accent-color: red;
+}
+.bloc1{
+    background-color: #c3c3c3;
+    text-shadow: 1px 2px 3px red;
+    font-size:18pt;
+    font-style: bolder;
+    animation: title 20s linear infinite ;
+}
+@keyframes title{
+    from{transform: translateX(0%);}
+    to{transform: translateX(100%);}
+}
+
+    
+
+
