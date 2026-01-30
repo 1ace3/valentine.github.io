@@ -561,6 +561,41 @@ body::after {
     background: var(--accent);
 }
 
+/* ===== Dancing Couple Section ===== */
+.couple-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.couple-image {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3);
+    animation: gentleBounce 2s ease-in-out infinite;
+}
+
+@keyframes gentleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.couple-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-top: 20px;
+    text-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
+}
+
 /* ===== Footer ===== */
 .footer {
     text-align: center;
