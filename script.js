@@ -159,6 +159,20 @@ function kissesEverywhere() {
 
 yesBtn.addEventListener('click', kissesEverywhere);
 
+// ===== Dancing Couple Click =====
+const coupleContainer = document.getElementById('coupleContainer');
+
+coupleContainer.addEventListener('click', () => {
+    coupleContainer.classList.toggle('reveal-names');
+
+    // If revealed, add some extra hearts for fun
+    if (coupleContainer.classList.contains('reveal-names')) {
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 100);
+        }
+    }
+});
+
 // ===== Initialize Everything =====
 function init() {
     initFloatingHearts();

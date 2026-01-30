@@ -568,12 +568,53 @@ body::after {
     margin-top: 20px;
 }
 
+.couple-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .couple-image {
     max-width: 280px;
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3);
     animation: gentleBounce 2s ease-in-out infinite;
+    display: block;
+}
+
+.character-label {
+    position: absolute;
+    background: rgba(233, 30, 99, 0.9);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Girl is on the left in the pixel art generally */
+.girl-label {
+    top: 20%;
+    left: 15%;
+}
+
+/* Boy is on the right */
+.boy-label {
+    top: 15%;
+    right: 15%;
+}
+
+.couple-container.reveal-names .character-label {
+    opacity: 1;
+    transform: scale(1);
 }
 
 @keyframes gentleBounce {
