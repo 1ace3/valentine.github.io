@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Will You Be My Valentine, Chloe?</title>
+    <meta name="description" content="A special Valentine's message for the most amazing person - Chloe">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Floating Hearts Container -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Sparkle Particles -->
+    <div class="sparkles-container" id="sparklesContainer"></div>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1 class="hero-title">
+                <span class="heart-icon">💕</span>
+                Will You Be My Valentine, Chloe?
+                <span class="heart-icon">💕</span>
+            </h1>
+            <p class="hero-subtitle">Click the envelope to reveal a special message for you...</p>
+        </header>
+
+        <!-- Interactive Envelope Section -->
+        <section class="envelope-section">
+            <div class="envelope-container" id="envelopeContainer">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="heart-seal">💌</div>
+                    </div>
+                </div>
+                <p class="envelope-hint" id="envelopeHint">✨ Click the envelope to open your surprise ✨</p>
+            </div>
+        </section>
+
+        <!-- Big Letter Popup -->
+        <div class="letter-popup" id="letterPopup">
+            <div class="letter-popup-content">
+                <div class="letter-paper">
+                    <p class="letter-title">Chloe,</p>
+                    <p class="letter-body">I just wanted to tell you something straight from my heart. From the moment
+                        you came into my life, everything felt brighter, warmer, and more meaningful. You've become the
+                        most important person to me, and I can't imagine my days without you in them.</p>
+                    <p class="letter-body">You are truly beautiful not only on the outside, but in the way you smile,
+                        talk, and make everything feel better just by being there. You have a way of making my heart
+                        feel calm and excited at the same time.</p>
+                    <p class="letter-body">So today, I wanted to ask you something special...</p>
+                    <p class="letter-question">Will you be my Valentine? ❤️</p>
+                    <div class="letter-hearts">💕 💖 💕</div>
+                    <div class="answer-buttons">
+                        <button class="yes-btn" id="yesBtn">Yes! 💕</button>
+                        <button class="no-btn" id="noBtn" disabled>No (not available, never will be 😏)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with love and care from your lover, <span class="footer-heart">❤️</span> Hassen</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
