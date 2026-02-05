@@ -345,7 +345,21 @@ function init() {
 }
 
 // Start when DOM is ready
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+
+    // Disable right-click
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    // Disable copying
+    document.addEventListener('copy', (e) => e.preventDefault());
+
+    // Disable select start (additional protection)
+    document.addEventListener('selectstart', (e) => e.preventDefault());
+
+    // Disable dragging elements (like images)
+    document.addEventListener('dragstart', (e) => e.preventDefault());
+});
 // ===== Reply Envelope System =====
 function initReplySystem() {
     const sendBtn = document.getElementById('sendReplyBtn');

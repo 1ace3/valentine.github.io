@@ -46,6 +46,10 @@ body {
     position: relative;
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 /* ===== Animated Background ===== */
