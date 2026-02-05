@@ -1775,7 +1775,6 @@ body.popup-open {
     bottom: 30px;
     left: 30px;
     z-index: 1000;
-    display: none;
 }
 
 .vinyl-container {
