@@ -425,10 +425,18 @@ function initReplay() {
 // ===== Interactive Moon =====
 function initMoonInteraction() {
     const moon = document.querySelector('.moon');
+    const bgMusic = document.getElementById('bgMusic');
     if (!moon) return;
 
     moon.addEventListener('click', (e) => {
-        // e.stopPropagation();
+        // Toggle music
+        if (bgMusic) {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(err => console.error("Playback failed:", err));
+            } else {
+                bgMusic.pause();
+            }
+        }
 
         // Create sparkle and message
         showLoveMessage(e.clientX, e.clientY);
@@ -462,35 +470,17 @@ function showLoveMessage(x, y) {
 }
 // ===== Music Player (Local) =====
 function initMusicPlayer() {
-    const musicWidget = document.getElementById('musicWidget');
-    const vinyl = document.getElementById('vinylRecord');
     const bgMusic = document.getElementById('bgMusic');
-
-    if (!musicWidget || !bgMusic) return;
+    if (!bgMusic) return;
 
     // Set volume and play
     bgMusic.volume = 0.5;
-    bgMusic.play().then(() => {
-        vinyl.classList.add('playing');
-    }).catch(err => console.log("Init playback blocked, waiting for interaction"));
-
-    musicWidget.addEventListener('click', () => {
-        if (bgMusic.paused) {
-            bgMusic.play().then(() => {
-                vinyl.classList.add('playing');
-            }).catch(err => console.error("Playback failed:", err));
-        } else {
-            bgMusic.pause();
-            vinyl.classList.remove('playing');
-        }
-    });
+    bgMusic.play().catch(err => console.log("Init playback blocked, waiting for interaction"));
 
     // Browser Autoplay Fallback: Start music on first interaction if blocked
     document.addEventListener('click', () => {
         if (bgMusic.paused) {
-            bgMusic.play().then(() => {
-                vinyl.classList.add('playing');
-            }).catch(err => console.log("Autoplay blocked, waiting for interaction"));
+            bgMusic.play().catch(err => console.log("Autoplay blocked, waiting for interaction"));
         }
     }, { once: true });
 }
