@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Note</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Death Note Theme Music -->
+    <audio id="bgMusic" loop>
+        <source src="Death Note - (Ryuk's Theme A) Music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Sound Toggle Button -->
+    <button class="sound-toggle" id="soundToggle">🔇</button>
+
+    <div class="scene">
+        <!-- The Notebook -->
+        <div class="notebook" id="notebook">
+            <!-- Front Cover -->
+            <div class="cover front-cover" id="frontCover">
+                <div class="cover-texture"></div>
+                <div class="cover-title">
+                    <span class="title-love">LOVE</span>
+                    <span class="title-note">NOTE</span>
+                </div>
+            </div>
+
+            <!-- Open Book (2 pages side by side) -->
+            <div class="open-book" id="openBook">
+                <!-- Left Page -->
+                <div class="page left-page" id="leftPage">
+                    <div class="page-content"></div>
+                    <div class="page-number left">1</div>
+                </div>
+
+                <!-- Right Page -->
+                <div class="page right-page" id="rightPage">
+                    <div class="page-content"></div>
+                    <div class="page-number right">2</div>
+                </div>
+
+                <!-- Page Navigation Arrows -->
+                <div class="page-nav">
+                    <button class="arrow arrow-left" id="prevBtn">‹</button>
+                    <button class="arrow arrow-right" id="nextBtn">›</button>
+                </div>
+            </div>
+
+            <!-- Back Cover (clickable to close) -->
+            <div class="cover back-cover" id="backCover"></div>
+        </div>
+
+        <!-- Instruction -->
+        <div class="instruction" id="instruction">Click to open</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

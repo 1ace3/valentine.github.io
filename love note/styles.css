@@ -1,0 +1,364 @@
+/* Death Note Style Font - using similar blackletter/gothic style */
+@font-face {
+    font-family: 'DeathNote';
+    src: url('https://fonts.cdnfonts.com/s/15377/JMHCthulhumbusUGalt2.woff') format('woff');
+    font-weight: normal;
+}
+
+/* Fallback gothic fonts + handwriting */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Caveat:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sound toggle button */
+.sound-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #333;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s;
+}
+
+.sound-toggle:hover {
+    background: rgba(40, 40, 40, 0.9);
+    border-color: #555;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0a0a0a;
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.scene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    perspective: 2000px;
+}
+
+/* ===== NOTEBOOK ===== */
+.notebook {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.notebook.open {
+    width: 580px;
+    cursor: default;
+}
+
+/* ===== COVERS ===== */
+.cover {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background: #111;
+    border-radius: 3px 8px 8px 3px;
+}
+
+.front-cover {
+    z-index: 10;
+    transform-origin: left center;
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        3px 3px 15px rgba(0, 0, 0, 0.9),
+        inset 0 0 80px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* Leather texture */
+.cover-texture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(50, 50, 50, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(20, 20, 20, 1) 0%, rgba(15, 15, 15, 1) 100%);
+    pointer-events: none;
+}
+
+/* Spine */
+.front-cover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 100%;
+    background: linear-gradient(90deg, #050505 0%, #0a0a0a 50%, #111 100%);
+    border-radius: 3px 0 0 3px;
+}
+
+/* Death Note style title */
+.cover-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e8e8e8;
+    z-index: 1;
+    font-family: 'UnifrakturMaguntia', 'DeathNote', 'Old English Text MT', fantasy;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.title-love {
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.title-note {
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: -8px;
+}
+
+.front-cover:hover {
+    box-shadow:
+        3px 3px 20px rgba(0, 0, 0, 0.95),
+        inset 0 0 80px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(40, 40, 40, 0.2);
+}
+
+.front-cover.opened {
+    transform: rotateY(-178deg);
+    cursor: pointer;
+}
+
+.back-cover {
+    z-index: 1;
+    background: #0a0a0a;
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* ===== OPEN BOOK - 2 PAGES ===== */
+.open-book {
+    position: absolute;
+    width: 560px;
+    height: calc(100% - 10px);
+    left: 15px;
+    top: 5px;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease 0.3s;
+    z-index: 5;
+}
+
+.open-book.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page {
+    width: 50%;
+    height: 100%;
+    background: #f4f1e8;
+    padding: 25px 20px;
+    position: relative;
+    font-family: 'Times New Roman', serif;
+}
+
+.left-page {
+    border-radius: 3px 0 0 3px;
+    background: linear-gradient(to right, #e0dcd0 0%, #f4f1e8 10%);
+    box-shadow: inset -5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.right-page {
+    border-radius: 0 5px 5px 0;
+    background: linear-gradient(to left, #ebe8e0 0%, #f4f1e8 5%);
+    box-shadow: inset 5px 0 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Page content */
+.page-content {
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-header {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    text-transform: uppercase;
+}
+
+.rules {
+    list-style: none;
+}
+
+.rules li {
+    margin-bottom: 14px;
+    line-height: 1.5;
+    color: #1a1a1a;
+    font-size: 12px;
+}
+
+.roman {
+    display: inline-block;
+    width: 25px;
+    font-weight: bold;
+}
+
+/* Lined page */
+.lined-content {
+    padding-top: 10px;
+}
+
+.line {
+    height: 24px;
+    border-bottom: 1px solid #d0c8c0;
+    position: relative;
+}
+
+.line.has-text {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 2px;
+}
+
+.handwriting {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: #1a1a1a;
+    padding-left: 5px;
+}
+
+/* Page numbers */
+.page-number {
+    position: absolute;
+    bottom: 12px;
+    font-size: 11px;
+    color: #999;
+}
+
+.page-number.left {
+    left: 20px;
+}
+
+.page-number.right {
+    right: 20px;
+}
+
+/* Navigation arrows */
+.page-nav {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    transform: translateY(-50%);
+    padding: 0 5px;
+}
+
+.arrow {
+    width: 30px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.arrow:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.arrow-left {
+    border-radius: 3px 0 0 3px;
+}
+
+.arrow-right {
+    border-radius: 0 3px 3px 0;
+}
+
+/* Instruction */
+.instruction {
+    color: #444;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+
+.instruction.hidden {
+    opacity: 0;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Responsive */
+@media (max-width: 620px) {
+    .notebook {
+        width: 260px;
+        height: 360px;
+    }
+
+    .notebook.open {
+        width: 500px;
+    }
+
+    .open-book {
+        width: 480px;
+    }
+
+    .cover {
+        width: 260px;
+    }
+
+    .title-love,
+    .title-note {
+        font-size: 40px;
+    }
+}
