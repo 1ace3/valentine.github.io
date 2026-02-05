@@ -5,22 +5,23 @@
     --secondary: #9c27b0;
     --accent: #ff6b9d;
     --accent-light: #ffb6c1;
-    --background: #1a0a0e;
-    --background-light: #2d1520;
-    --text: #fff5f7;
-    --text-muted: #d4a5b0;
+    --background: #000000;
+    /* Pure Midnight Black */
+    --background-light: #0a0508;
+    --text: #ffffff;
+    --text-muted: #8b7355;
     --gold: #ffd700;
     --white: #ffffff;
 
     --gradient-romantic: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%);
     --gradient-soft: linear-gradient(135deg, #ff6b9d 0%, #ff8a80 100%);
-    --gradient-dark: linear-gradient(180deg, #1a0a0e 0%, #2d1520 50%, #1a0a0e 100%);
+    --gradient-dark: radial-gradient(circle at 50% 50%, #0a0508 0%, #000000 100%);
 
     --shadow-glow: 0 0 40px rgba(233, 30, 99, 0.3);
-    --shadow-card: 0 25px 50px rgba(0, 0, 0, 0.4);
-
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --shadow-card: 15px 25px 50px rgba(0, 0, 0, 0.8);
+    /* Moon-directed shadow */
+    --lunar-reflection: 0 -2px 10px rgba(255, 255, 255, 0.3);
+    /* Top edge light */
 }
 
 /* ===== Reset & Base ===== */
@@ -65,11 +66,16 @@ body::after {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(ellipse at 20% 20%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(156, 39, 176, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(103, 58, 183, 0.1) 0%, transparent 60%);
+        radial-gradient(ellipse at 20% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(156, 39, 176, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(103, 58, 183, 0.05) 0%, transparent 60%);
     z-index: -1;
     animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+/* Prevent body scroll when popup is open */
+body.popup-open {
+    overflow: hidden;
 }
 
 @keyframes backgroundPulse {
@@ -96,12 +102,115 @@ body::after {
     overflow: hidden;
 }
 
-.floating-heart {
+.floating-heart,
+.floating-heart-img {
     position: absolute;
-    font-size: 20px;
+    width: 25px;
+    /* Default size */
+    height: 25px;
+    object-fit: contain;
     animation: floatUp linear infinite;
-    opacity: 0.6;
-    filter: blur(0.5px);
+    opacity: 0.4;
+    filter: drop-shadow(0 0 5px rgba(233, 30, 99, 0.3));
+}
+
+.spam-text {
+    position: fixed;
+    left: -200px;
+    white-space: nowrap;
+    opacity: 0;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    color: var(--accent);
+    pointer-events: none;
+    z-index: 0;
+    animation: spamRight linear forwards;
+    filter: blur(1.5px);
+    text-shadow: 0 0 10px rgba(212, 106, 129, 0.2);
+    letter-spacing: 2px;
+}
+
+@keyframes spamRight {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.15;
+    }
+
+    90% {
+        opacity: 0.15;
+    }
+
+    100% {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+}
+
+/* ===== Magic & Light Effects ===== */
+.magic-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.light-ray {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(255, 182, 193, 0.05) 0%, transparent 70%);
+    transform: rotate(-45deg);
+    animation: sweep 15s ease-in-out infinite alternate;
+}
+
+@keyframes sweep {
+    from {
+        transform: rotate(-45deg) translateX(-10%);
+    }
+
+    to {
+        transform: rotate(-45deg) translateX(10%);
+    }
+}
+
+.fairy-dust {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0;
+    animation: drift 15s ease-in-out infinite;
+    /* Slower drift */
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translate(100px, -100px) scale(1);
+        opacity: 0;
+    }
 }
 
 @keyframes floatUp {
@@ -121,6 +230,86 @@ body::after {
     100% {
         transform: translateY(-100px) rotate(360deg) scale(0.5);
         opacity: 0;
+    }
+}
+
+/* ===== Stars Field & Moon ===== */
+.stars-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    display: block !important;
+}
+
+.moon {
+    position: absolute;
+    top: 50px;
+    right: 80px;
+    width: 100px;
+    height: 100px;
+    background: #fffdf5;
+    border-radius: 50%;
+    box-shadow:
+        0 0 40px rgba(255, 255, 255, 0.4),
+        0 0 100px rgba(255, 255, 255, 0.1),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.moon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.6);
+}
+
+.moon::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 20%;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    box-shadow: 30px 40px 0 rgba(0, 0, 0, 0.05), 10px 50px 0 rgba(0, 0, 0, 0.03);
+}
+
+.moon-glow {
+    position: absolute;
+    top: 50px;
+    right: 80px;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: scale(1.1);
     }
 }
 
@@ -188,15 +377,19 @@ body::after {
 }
 
 .hero-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    background: var(--gradient-romantic);
+    font-family: 'Rouge Script', cursive;
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    background: linear-gradient(135deg, #fff 0%, #ffc0cb 50%, #e91e63 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 60px rgba(233, 30, 99, 0.5);
+    text-shadow:
+        0 0 50px rgba(255, 182, 193, 0.4),
+        0 0 20px rgba(255, 255, 255, 0.2);
+    /* Ethereal Starlight Halo */
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1;
+    letter-spacing: 2px;
 }
 
 .heart-icon {
@@ -235,8 +428,12 @@ body::after {
 /* ===== Envelope Section ===== */
 .envelope-section {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 40px 0;
+    width: 100%;
+    padding: 60px 0;
+    margin: 0 auto;
 }
 
 .envelope-container {
@@ -273,6 +470,23 @@ body::after {
 .heart-seal {
     font-size: 3rem;
     animation: pulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-seal img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.iphone-emoji-inline {
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.1em;
 }
 
 @keyframes pulse {
@@ -770,11 +984,12 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
     padding: 20px;
+    overflow-y: auto;
 }
 
 .letter-popup.show {
@@ -792,42 +1007,70 @@ body::after {
 }
 
 .letter-paper {
-    background: linear-gradient(145deg, #fff9f9, #fff0f3);
+    background: linear-gradient(145deg, #1a1a1d, #0d0d0f);
     border-radius: 20px;
     padding: 50px 40px;
     max-width: 550px;
     width: 100%;
+    max-height: 85vh;
+    /* Ensure it fits on screen */
+    overflow-y: auto;
+    /* Enable scrolling */
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: var(--primary) transparent;
+    /* Firefox */
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.5),
-        0 0 100px rgba(233, 30, 99, 0.3),
-        inset 0 0 60px rgba(255, 182, 193, 0.2);
+        30px 40px 80px rgba(0, 0, 0, 0.9),
+        0 0 100px rgba(212, 106, 129, 0.1),
+        inset -2px -2px 10px rgba(255, 255, 255, 0.05);
     position: relative;
-    border: 3px solid rgba(233, 30, 99, 0.2);
+    border: 2px solid rgba(212, 106, 129, 0.2);
 }
 
-.letter-paper::before {
-    content: '💕';
+/* Custom Scrollbar for Letter */
+.letter-paper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.letter-paper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-paper::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.letter-paper::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+.letter-top-heart {
     position: absolute;
-    top: -25px;
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
     animation: heartbeat 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.3));
 }
 
 .letter-title {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5rem;
-    color: #e91e63;
+    color: var(--text);
     text-align: center;
     margin-bottom: 25px;
-    text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+    text-shadow: 2px 2px 10px rgba(212, 106, 129, 0.3);
 }
 
 .letter-body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
-    color: #4a3540;
+    color: var(--accent);
     line-height: 1.8;
     margin-bottom: 20px;
     text-align: center;
@@ -836,7 +1079,7 @@ body::after {
 .letter-question {
     font-family: 'Great Vibes', cursive;
     font-size: 2.5rem;
-    color: #c2185b;
+    color: var(--gold);
     text-align: center;
     margin-top: 30px;
     margin-bottom: 15px;
@@ -845,8 +1088,25 @@ body::after {
 
 .letter-hearts {
     text-align: center;
-    font-size: 2rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.letter-hearts img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
     animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.letter-hearts img:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.letter-hearts img:nth-child(3) {
+    animation-delay: 0.4s;
 }
 
 /* Responsive Letter Popup */
@@ -872,47 +1132,136 @@ body::after {
 /* ===== Answer Buttons ===== */
 .answer-buttons {
     display: flex;
-    gap: 15px;
+    flex-direction: row;
+    /* Force horizontal alignment */
+    align-items: center;
+    /* Vertical center alignment */
+    gap: 30px;
     justify-content: center;
-    margin-top: 25px;
-    flex-wrap: wrap;
+    margin-top: 40px;
+    flex-wrap: nowrap;
+    /* Prevent wrapping so they stay together */
 }
 
 .yes-btn {
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 24px 70px;
+    font-size: 1.7rem;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Glass Border */
+    border-radius: 60px;
+    background: linear-gradient(135deg, #d46a81 0%, #d4af37 100%);
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow:
+        0 15px 45px rgba(212, 106, 129, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.yes-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+}
+
+.yes-btn:hover::after {
+    opacity: 1;
+}
+
+.yes-btn .iphone-emoji-inline {
+    width: 1.4em;
+    height: 1.4em;
+    animation: btnHeartbeat 1s ease-in-out infinite;
+}
+
+@keyframes btnHeartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.yes-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transition: all 0.6s;
+    z-index: -1;
 }
 
 .yes-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 106, 129, 0.5);
+}
+
+.yes-btn:hover::before {
+    left: 100%;
+}
+
+.yes-btn:active {
+    transform: scale(0.95);
 }
 
 .no-btn {
-    padding: 12px 25px;
-    font-size: 0.9rem;
-    border: 2px dashed #ccc;
+    padding: 14px 35px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50px;
-    background: #f0f0f0;
-    color: #999;
-    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(253, 250, 246, 0.7);
+    cursor: default;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.no-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(50px) translateY(-15px) rotate(20deg) scale(0.9);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
     opacity: 0.6;
 }
 
 /* ===== Kiss Animation ===== */
 .kiss {
     position: fixed;
-    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
     pointer-events: none;
-    animation: kissFloat 3s ease-out forwards;
+    animation: kissFloat 3.0s ease-out forwards;
     z-index: 2000;
 }
 
@@ -939,16 +1288,30 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, #e91e63, #9c27b0);
-    color: white;
-    padding: 40px 60px;
-    border-radius: 20px;
+    background: var(--gradient-romantic);
+    color: var(--white);
+    padding: 50px;
+    border-radius: 30px;
     font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
+    font-size: 2.8rem;
+    line-height: 1.3;
     text-align: center;
     z-index: 3000;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.iphone-emoji-inline {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: sub;
+    margin: 0 5px;
+    object-fit: contain;
 }
 
 @keyframes popIn {
@@ -970,7 +1333,432 @@ body::after {
     }
 
     .success-message {
-        font-size: 2rem;
-        padding: 30px 40px;
+        font-size: 1.8rem;
+        padding: 40px 25px;
+        width: 95%;
     }
+}
+
+/* ===== Reply Section ===== */
+.reply-section {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    /* Keep it clickable */
+}
+
+.reply-container {
+    max-width: 500px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.reply-envelope-wrapper {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    /* Envelope height */
+    margin: 100px auto 20px;
+    /* Space for paper sticking out */
+    /* Key fix: Allow top overflow for paper, clip bottom overflow */
+    clip-path: inset(-300px -50px 0 -50px);
+}
+
+.reply-paper {
+    width: 280px;
+    height: 250px;
+    /* Taller than envelope initially */
+    background: #fffdf5;
+    border: 1px solid #e0c9a6;
+    border-radius: 5px;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    resize: none;
+    position: absolute;
+    bottom: 0;
+    /* Align with bottom of wrapper */
+    left: 10px;
+    z-index: 10;
+    /* Behind front, in front of back */
+    transition: all 1s ease-in-out;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.reply-paper:focus {
+    box-shadow: 0 -5px 15px rgba(233, 30, 99, 0.2);
+    border-color: var(--accent);
+}
+
+.reply-envelope-back {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 180px;
+    background: #d46a81;
+    border-radius: 0 0 10px 10px;
+    z-index: 5;
+}
+
+.reply-envelope-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 180px;
+    /* Create envelope fold shape using border trick or clipping */
+    background: transparent;
+    border-left: 150px solid #e91e63;
+    border-right: 150px solid #e91e63;
+    border-bottom: 100px solid #c2185b;
+    border-top: 80px solid transparent;
+    border-radius: 0 0 10px 10px;
+    z-index: 20;
+    /* In front of paper */
+    pointer-events: none;
+    /* Allow clicking text area though? No, text area sticks out top */
+}
+
+.reply-envelope-flap {
+    position: absolute;
+    top: 20px;
+    /* Matches envelope top start */
+    left: 0;
+    width: 300px;
+    height: 160px;
+    /* Flap height */
+    background: #ff6b9d;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    z-index: 30;
+    /* On top of everything when closed */
+    transform-origin: top;
+    transition: transform 0.6s 0.8s ease-in-out;
+    /* Delay for paper slide */
+}
+
+.reply-envelope-wrapper.sending .reply-paper {
+    /* Push it all the way down so top is hidden by flap */
+    transform: translateY(180px);
+    /* Shrink height to fit? */
+}
+
+.reply-envelope-wrapper.sending .reply-envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 25;
+    /* Go behind front layer part? No, covers opening */
+}
+
+/* Seal Animation */
+.reply-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 40;
+    transition: transform 0.4s 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reply-seal img {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.reply-envelope-wrapper.sealed .reply-seal {
+    transform: translate(-50%, -10%) scale(1);
+    /* Position on flap */
+}
+
+.send-reply-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: var(--gradient-romantic);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
+    transition: transform 0.2s;
+}
+
+.send-reply-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Success State */
+.reply-success {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s 1.8s;
+    /* Show after sealing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.reply-envelope-wrapper.sealed~.reply-success {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
+/* ===== Replay Button ===== */
+.replay-btn {
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: var(--text-muted);
+    /* Subtle text color */
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    /* Hidden initially until opened */
+    pointer-events: none;
+}
+
+.envelope.open~.replay-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.replay-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    transform: rotate(-5deg);
+}
+
+/* ===== Text Fade In Animation ===== */
+.letter-body,
+.letter-question {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.letter-popup.show .letter-body,
+.letter-popup.show .letter-question {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delays for Letter Content */
+
+.letter-popup.show .letter-body:nth-of-type(1) {
+    transition-delay: 0.4s;
+}
+
+.letter-popup.show .letter-body:nth-of-type(2) {
+    transition-delay: 0.8s;
+}
+
+.letter-popup.show .letter-body:nth-of-type(3) {
+    transition-delay: 1.2s;
+}
+
+.letter-popup.show .letter-body:nth-of-type(4) {
+    transition-delay: 1.6s;
+}
+
+.letter-popup.show .letter-question {
+    transition-delay: 2.0s;
+}
+
+.letter-popup.show .letter-body:last-of-type {
+    transition-delay: 2.4s;
+}
+
+/* The 'just for one day' text */
+
+@keyframes floatUpFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -20%) scale(0.5);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translate(-50%, -100%) scale(1.1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -300%) scale(1);
+    }
+}
+
+/* ===== Music & Countdown Widgets ===== */
+.music-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: none;
+}
+
+.vinyl-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vinyl-container:hover {
+    transform: scale(1.15);
+}
+
+.vinyl-record {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #222 30%, #111 100%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.vinyl-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.vinyl-record.playing {
+    animation: spinVinyl 3s linear infinite;
+}
+
+@keyframes spinVinyl {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.music-tooltip {
+    position: absolute;
+    left: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vinyl-container:hover .music-tooltip {
+    opacity: 1;
+}
+
+.time-counter-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--primary);
+}
+
+.counter-label {
+    font-size: 0.75rem;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.counter-display {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 3px;
+}
+
+.met-date {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+/* Adjust for mobile */
+@media (max-width: 600px) {
+    .music-widget {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .time-counter-widget {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+    }
+
+    .counter-display {
+        font-size: 0.9rem;
+    }
+}
+
+#youtubePlayer {
+    position: fixed !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    width: 640px;
+    height: 360px;
+    pointer-events: none;
+    z-index: -1000;
 }

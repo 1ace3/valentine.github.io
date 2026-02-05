@@ -8,7 +8,8 @@
     <meta name="description" content="A special Valentine's message for the most amazing person - Chloe">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&family=Rouge+Script&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,6 +17,16 @@
 <body>
     <!-- Floating Hearts Container -->
     <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Stars Layer -->
+    <div class="stars-field"></div>
+
+    <!-- Moon (Moved out for z-index clicking) -->
+    <div class="moon"></div>
+    <div class="moon-glow"></div>
+
+    <!-- Magic Effects Layer -->
+    <div class="magic-container" id="magicContainer"></div>
 
     <!-- Sparkle Particles -->
     <div class="sparkles-container" id="sparklesContainer"></div>
@@ -25,14 +36,14 @@
         <!-- Hero Section -->
         <header class="hero">
             <h1 class="hero-title">
-                <span class="heart-icon">💕</span>
+                <img src="https://emojicdn.elk.sh/💕?style=apple" alt="heart" class="iphone-emoji-inline">
                 Will You Be My Valentine, Chloe?
-                <span class="heart-icon">💕</span>
+                <img src="https://emojicdn.elk.sh/💕?style=apple" alt="heart" class="iphone-emoji-inline">
             </h1>
-            <p class="hero-subtitle">Click the envelope to reveal a special message for you...</p>
         </header>
 
         <!-- Dancing Couple -->
+
         <section class="couple-section">
             <div class="couple-container" id="coupleContainer">
                 <img src="couple.png" alt="Us dancing together" class="couple-image">
@@ -48,10 +59,18 @@
                 <div class="envelope" id="envelope">
                     <div class="envelope-flap"></div>
                     <div class="envelope-body">
-                        <div class="heart-seal">💌</div>
+                        <div class="heart-seal">
+                            <img src="https://emojicdn.elk.sh/💌?style=apple" alt="seal">
+                        </div>
                     </div>
                 </div>
-                <p class="envelope-hint" id="envelopeHint">✨ Click the envelope to open your surprise ✨</p>
+                <!-- Replay Button -->
+                <button class="replay-btn" id="replayBtn" aria-label="Replay Illustration">
+                    <img src="https://emojicdn.elk.sh/🔄?style=apple" alt="refresh" class="iphone-emoji-inline"> Replay
+                </button>
+                <p class="envelope-hint" id="envelopeHint"><img src="https://emojicdn.elk.sh/✨?style=apple"
+                        alt="sparkle" class="iphone-emoji-inline"> Click the envelope to open your surprise <img
+                        src="https://emojicdn.elk.sh/✨?style=apple" alt="sparkle" class="iphone-emoji-inline"></p>
             </div>
         </section>
 
@@ -59,33 +78,92 @@
         <div class="letter-popup" id="letterPopup">
             <div class="letter-popup-content">
                 <div class="letter-paper">
+                    <img src="https://emojicdn.elk.sh/💕?style=apple" alt="heart" class="letter-top-heart">
                     <p class="letter-title">Chloe,</p>
                     <p class="letter-body">I just wanted to tell you something straight from my heart. From the moment
-                        you came into my life, everything felt brighter, warmer, and more meaningful. You've become the
-                        most important person to me, and I can't imagine my days without you in them.</p>
+                        you came into my life, everything felt brighter, warmer, and more meaningful. You’ve become the
+                        most important person to me, and I can’t imagine my days without you in them.</p>
                     <p class="letter-body">You are truly beautiful not only on the outside, but in the way you smile,
-                        talk, and make everything feel better just by being there. You have a way of making my heart
-                        feel calm and excited at the same time.</p>
+                        the way you talk, and the way you make everything feel better just by being there. You have a
+                        way of making my heart feel calm and excited at the same time, and that’s something I’ve never
+                        felt with anyone else.</p>
+                    <p class="letter-body">Every little moment with you means more to me than you probably realize, your
+                        laugh, your voice, the way you make me feel understood and safe. You inspire me to be better, to
+                        dream bigger, and to believe in love more than I ever have before.</p>
                     <p class="letter-body">So today, I wanted to ask you something special...</p>
-                    <p class="letter-question">Will you be my Valentine? ❤️</p>
-                    <div class="letter-hearts">💕 💖 💕</div>
+                    <p class="letter-question">Will you be my Valentine? <img
+                            src="https://emojicdn.elk.sh/💗?style=apple" alt="heart" class="iphone-emoji-inline"></p>
+                    <p class="letter-body" style="margin-top: 15px; font-style: italic;">Not just for one day, but as
+                        someone who means everything to me, someone I want to keep choosing, every single day.</p>
+                    <div class="letter-hearts">
+                        <img src="https://emojicdn.elk.sh/💕?style=apple" alt="heart">
+                        <img src="https://emojicdn.elk.sh/💖?style=apple" alt="heart">
+                        <img src="https://emojicdn.elk.sh/💕?style=apple" alt="heart">
+                    </div>
                     <div class="answer-buttons">
-                        <button class="yes-btn" id="yesBtn">Yes! 💕</button>
+                        <button class="yes-btn" id="yesBtn">Yes! <img src="https://emojicdn.elk.sh/💕?style=apple"
+                                alt="heart" class="iphone-emoji-inline"></button>
                         <button class="no-btn" id="noBtn" disabled>No (not available, never will be 😏)</button>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
+    <!-- Music & Countdown Widgets -->
+    <div class="music-widget" id="musicWidget">
+        <div class="vinyl-container">
+            <div class="vinyl-record" id="vinylRecord">
+                <div class="vinyl-center"></div>
+            </div>
+            <div class="music-tooltip">Click to play "Beautiful in White" 🎵</div>
+        </div>
+        <audio id="bgMusic" loop autoplay>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
+    <div class="time-counter-widget" id="timeCounter">
+        <div class="counter-label">Time Since We Met 💖</div>
+        <div class="counter-display" id="metCounterDisplay">Loading...</div>
+        <div class="met-date">Sept 13, 2025</div>
+    </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Made with love and care from your lover, <span class="footer-heart">❤️</span> Hassen</p>
-        </footer>
+    <!-- Reply Section -->
+    <section class="reply-section" id="replySection">
+        <h2 class="form-title">Write me a message...</h2>
+        <div class="reply-container">
+            <div class="reply-envelope-wrapper">
+                <div class="reply-envelope-back"></div>
+                <textarea class="reply-paper" id="replyInput" placeholder="Write something sweet here..."></textarea>
+                <div class="reply-envelope-front"></div>
+                <div class="reply-envelope-flap"></div>
+                <div class="reply-seal" id="replySeal">
+                    <img src="https://emojicdn.elk.sh/❤️?style=apple" alt="seal">
+                </div>
+            </div>
+            <button class="send-reply-btn" id="sendReplyBtn">
+                Seal & Send <img src="https://emojicdn.elk.sh/💌?style=apple" alt="letter" class="iphone-emoji-inline">
+            </button>
+            <div class="reply-success" id="replySuccess">
+                <p>Message Sealed with Love! 💋</p>
+                <a href="#" id="whatsappLink" target="_blank" class="whatsapp-btn">
+                    Send via WhatsApp <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="wa"
+                        style="width:20px;vertical-align:middle;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with love and care from your lover, <img src="https://emojicdn.elk.sh/❤️?style=apple" alt="heart"
+                class="iphone-emoji-inline"> Hassen</p>
+    </footer>
     </main>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
