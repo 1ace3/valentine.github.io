@@ -131,7 +131,6 @@ body.popup-open {
     pointer-events: none;
     z-index: 0;
     animation: spamRight linear forwards;
-    filter: blur(1.5px);
     text-shadow: 0 0 10px rgba(212, 106, 129, 0.2);
     letter-spacing: 2px;
 }
