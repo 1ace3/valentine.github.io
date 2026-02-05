@@ -74,7 +74,7 @@ function createSpamText() {
     const startY = Math.random() * 95;
     const duration = Math.random() * 2 + 3; // Fast movement across screen
     const delay = Math.random() * 0.2;
-    const size = Math.random() * 10 + 16;
+    const size = Math.random() * 15 + 24;
 
     spam.style.cssText = `
         top: ${startY}%;
