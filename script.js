@@ -340,6 +340,7 @@ function init() {
     initReplySystem();
     initReplay();
     initMoonInteraction();
+    initPlanetInteraction();
     initMusicPlayer();
     initMetCounter();
 }
@@ -425,25 +426,34 @@ function initReplay() {
 // ===== Interactive Moon =====
 function initMoonInteraction() {
     const moon = document.querySelector('.moon');
-    const bgMusic = document.getElementById('bgMusic');
     if (!moon) return;
 
     moon.addEventListener('click', (e) => {
-        // Toggle music
-        if (bgMusic) {
-            if (bgMusic.paused) {
-                bgMusic.play().catch(err => console.error("Playback failed:", err));
-            } else {
-                bgMusic.pause();
-            }
-        }
-
         // Create sparkle and message
         showLoveMessage(e.clientX, e.clientY);
 
         // Add a pulse effect
         moon.style.transform = 'scale(1.2)';
         setTimeout(() => moon.style.transform = '', 300);
+    });
+}
+
+// ===== Planet Interaction (Music Trigger) =====
+function initPlanetInteraction() {
+    const planet = document.getElementById('musicPlanet');
+    const bgMusic = document.getElementById('bgMusic');
+    if (!planet || !bgMusic) return;
+
+    planet.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play().catch(err => console.error("Playback failed:", err));
+        } else {
+            bgMusic.pause();
+        }
+
+        // Small reaction animation
+        planet.style.transform = 'scale(0.8)';
+        setTimeout(() => planet.style.transform = '', 150);
     });
 }
 

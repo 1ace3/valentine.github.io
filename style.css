@@ -1769,6 +1769,73 @@ body.popup-open {
     }
 }
 
+/* ===== Music Planet Widget ===== */
+.music-planet {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 3rem;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    animation: planetFloat 4s ease-in-out infinite;
+}
+
+.music-planet:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.music-planet:active {
+    transform: scale(0.9);
+}
+
+@keyframes planetFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.music-planet .music-tooltip {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.music-planet:hover .music-tooltip {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .music-planet {
+        bottom: 20px;
+        left: 20px;
+        font-size: 2.2rem;
+    }
+
+    .music-planet .music-tooltip {
+        display: none;
+    }
+}
+
 .time-counter-widget {
     position: fixed;
     bottom: 30px;
