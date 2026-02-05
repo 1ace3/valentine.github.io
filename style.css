@@ -44,6 +44,8 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* ===== Animated Background ===== */
@@ -899,11 +901,46 @@ body.popup-open {
     .quote-text {
         font-size: 1rem;
     }
+
+    /* Letter popup improvements */
+    .letter-paper {
+        padding: 35px 25px;
+        max-height: 80vh;
+    }
+
+    .letter-title {
+        font-size: 2.8rem;
+    }
+
+    .letter-body {
+        font-size: 1rem;
+    }
+
+    .letter-question {
+        font-size: 2rem;
+    }
+
+    /* Button improvements */
+    .yes-btn {
+        padding: 18px 50px;
+        font-size: 1.4rem;
+    }
+
+    .no-btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+
+    /* Couple image */
+    .couple-image {
+        max-width: 220px;
+    }
 }
 
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
+        line-height: 1.2;
     }
 
     .heart-icon {
@@ -916,9 +953,118 @@ body.popup-open {
         height: 140px;
     }
 
+    /* Make touch targets larger */
+    .envelope-container {
+        padding: 20px;
+    }
+
     .generate-btn {
         padding: 15px 30px;
         font-size: 1rem;
+    }
+
+    /* Letter popup mobile optimizations */
+    .letter-paper {
+        padding: 30px 20px;
+        max-height: 75vh;
+        margin: 0 10px;
+    }
+
+    .letter-top-heart {
+        width: 45px;
+        height: 45px;
+        top: -25px;
+    }
+
+    .letter-title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .letter-body {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .letter-question {
+        font-size: 1.6rem;
+        margin-top: 20px;
+    }
+
+    .letter-hearts img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* Answer buttons mobile */
+    .answer-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .yes-btn {
+        padding: 16px 40px;
+        font-size: 1.2rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .no-btn {
+        padding: 12px 25px;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* Success message mobile */
+    .success-message {
+        font-size: 1.6rem;
+        padding: 35px 20px;
+        width: 90%;
+        max-width: 90%;
+    }
+
+    /* Couple section mobile */
+    .couple-image {
+        max-width: 180px;
+    }
+
+    .character-label {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    /* Reply section mobile */
+    .reply-envelope-wrapper {
+        width: 260px;
+        height: 170px;
+    }
+
+    .reply-paper {
+        width: 240px;
+        height: 210px;
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Countdown widget mobile */
+    .time-counter-widget {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .counter-display {
+        font-size: 0.85rem;
+    }
+
+    /* Kiss animations - slightly smaller on mobile */
+    .kiss {
+        width: 30px;
+        height: 30px;
     }
 }
 
