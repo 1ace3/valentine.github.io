@@ -389,6 +389,9 @@ function initReplySystem() {
         setTimeout(() => {
             wrapper.classList.add('sealed');
 
+            // 4. Trigger Pigeon Animation
+            createPigeons(sendBtn);
+
             // Generate WhatsApp Link
             // Replace with actual phone number if needed, or leave blank to let user choose contact
             const phoneNumber = "";
@@ -398,6 +401,32 @@ function initReplySystem() {
             sendBtn.style.display = 'none'; // Hide button after sending
         }, 1500);
     });
+}
+
+function createPigeons(originElement) {
+    const rect = originElement.getBoundingClientRect();
+    const startX = rect.left + rect.width / 2;
+    const startY = rect.top;
+
+    for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+            const pigeon = document.createElement('div');
+            pigeon.className = 'pigeon';
+            pigeon.textContent = '🕊️';
+            pigeon.style.left = startX + 'px';
+            pigeon.style.top = startY + 'px';
+
+            // Randomize flight a bit
+            const duration = 2 + Math.random() * 2;
+            const delay = Math.random() * 0.5;
+            pigeon.style.animation = `flyAway ${duration}s ease-in-out ${delay}s forwards`;
+
+            document.body.appendChild(pigeon);
+
+            // Cleanup
+            setTimeout(() => pigeon.remove(), (duration + delay) * 1000);
+        }, i * 200);
+    }
 }
 
 // ===== Replay System =====
